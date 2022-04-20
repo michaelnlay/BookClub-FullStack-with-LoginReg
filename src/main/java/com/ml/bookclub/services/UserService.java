@@ -1,17 +1,17 @@
-package com.ml.loginregister.services;
+package com.ml.bookclub.services;
 
 
 
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
-import com.ml.loginregister.models.LoginUser;
-import com.ml.loginregister.models.User;
-import com.ml.loginregister.repositories.UserRepository;
+import com.ml.bookclub.models.LoginUser;
+import com.ml.bookclub.models.User;
+import com.ml.bookclub.repositories.UserRepository;
 
 
 
@@ -19,8 +19,11 @@ import com.ml.loginregister.repositories.UserRepository;
 public class UserService {
 	
 	
-	@Autowired
+	//using dependency injection rather than @Autowire
     private UserRepository userRepo;
+	public UserService(UserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
     
 	
     // TO-DO: Write register and login methods!
@@ -79,7 +82,30 @@ public class UserService {
         }
     	
     }
-
+    
+	//=======================================================================
+	//Find One User based on Id
+	//=======================================================================
+ 
+    public User getUserInfo(Long id) {
+    	
+    	//in our service, our getUserInfo is called back to our userRepo in Repository
+    	Optional<User>optionalUser = userRepo.findById(id);
+    	if(optionalUser.isPresent()) { //if we located something
+    		return optionalUser.get(); //pull from DB and return a proper instance
+    	}else {
+    		return null;
+    	}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 	
 	

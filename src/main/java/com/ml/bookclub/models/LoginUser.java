@@ -1,4 +1,4 @@
-package com.ml.loginregister.models;
+package com.ml.bookclub.models;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -14,19 +14,7 @@ public class LoginUser {
     @Size(min=8, max=128, message="Password must be between 8 and 128 characters")
     private String password;
     
-    //We don't need below since we are not pushing data back to database
-	/*
-	 * @Column(updatable=false)
-	 * 
-	 * @DateTimeFormat(pattern="yyyy-MM-dd") private Date createdAt;
-	 * 
-	 * @DateTimeFormat(pattern="yyyy-MM-dd") private Date updatedAt;
-	 * 
-	 * @PrePersist protected void onCreate(){ this.createdAt = new Date(); }
-	 * 
-	 * @PreUpdate protected void onUpdate(){ this.updatedAt = new Date(); }
-	 */
-    
+
 	//============================================================================
 	//CONSTRUCTORS
 	//============================================================================

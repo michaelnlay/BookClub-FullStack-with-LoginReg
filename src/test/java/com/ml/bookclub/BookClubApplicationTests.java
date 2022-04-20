@@ -1,10 +1,10 @@
-package com.ml.loginregister;
+package com.ml.bookclub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LoginAndRegisterApplicationTests {
+class BookClubApplicationTests {
 
 	@Test
 	void contextLoads() {
